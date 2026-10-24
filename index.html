@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>算法可视化 · Algo Visualizer</title>
+  <meta name="description" content="纯原生 JavaScript 实现的排序算法可视化：冒泡、插入、选择、快速、归并、堆排序，单步观看每一次比较与交换。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>算法可视化</h1>
+    <p class="subtitle">纯原生 JavaScript，无任何依赖 · 每一次比较与交换都看得见</p>
+  </header>
+
+  <section class="controls">
+    <label>
+      算法
+      <select id="algorithm">
+        <option value="bubble">冒泡排序</option>
+        <option value="insertion">插入排序</option>
+        <option value="selection">选择排序</option>
+        <option value="quick">快速排序</option>
+        <option value="merge">归并排序</option>
+        <option value="heap">堆排序</option>
+      </select>
+    </label>
+    <label>
+      数组大小 <span id="size-label">60</span>
+      <input type="range" id="size" min="10" max="150" value="60">
+    </label>
+    <label>
+      速度 <span id="speed-label">快</span>
+      <input type="range" id="speed" min="1" max="5" value="4">
+    </label>
+    <button id="shuffle" class="btn">打乱</button>
+    <button id="start" class="btn primary">开始排序</button>
+  </section>
+
+  <section class="stats">
+    <span>比较：<b id="comparisons">0</b></span>
+    <span>写入：<b id="writes">0</b></span>
+    <span>用时：<b id="elapsed">0.0s</b></span>
+    <span>状态：<b id="state">待命</b></span>
+  </section>
+
+  <main id="bars" aria-label="数组可视化区域"></main>
+
+  <section class="notes">
+    <p id="note">选择一个算法，点击「开始排序」。归并排序的 set 操作表示回写合并结果。</p>
+  </section>
+
+  <footer>
+    <p>用纯原生 JavaScript 手写 ·
+       <a href="https://github.com/Chenjie-Prog/algo-visualizer">源码</a> ·
+       MIT License</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
